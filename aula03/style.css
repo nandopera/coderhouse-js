@@ -1,0 +1,40 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    font-size: 2rem;
+}
+
+/* Estilos para o esquema de cores claro */
+body.light {
+    background-color: white;
+    color: rgb(60, 60, 60);
+}
+
+/* Estilos para o esquema de cores escuro */
+body.dark {
+    background-color: rgb(60, 60, 60);
+    color: white;
+}
+
+button {
+    width: 20ch;
+    height: 8vh;
+    font-size: 2rem;
+    border-radius: 1rem;
+}
+
+#dataNascimento {
+    width: 15ch;
+    font-size: 1.5rem;
+}
+
+#botaoExibirIdade {
+    width: 15ch;
+    height: 5vh;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    
+}

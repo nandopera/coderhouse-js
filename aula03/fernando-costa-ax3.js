@@ -1,32 +1,83 @@
-// Opções de idioma
-let idioma = prompt("Digite o idioma desejado (pt-br, en-us ou es):");
+let idiomaSelecionado = 'pt-br';
 
-// Verifica o idioma escolhido
-if (idioma === "pt-br") {
-  alert("Olá! Bem-vindo ao nosso site!");
+const textos = {
+    'pt-br': {
+        tituloIdioma: 'Escolha seu idioma:',
+        mensagemIdade: 'Digite sua data de nascimento:',
+        placeholderDataNascimento: 'Data de Nascimento',
+        botaoExibirIdade: 'Exibir idade',
+        resultadoIdade: 'Você tem',
+        anos: 'anos.'
+    },
+    'en-us': {
+        tituloIdioma: 'Choose your language:',
+        mensagemIdade: 'Enter your birth date:',
+        placeholderDataNascimento: 'Date of Birth',
+        botaoExibirIdade: 'Show age',
+        resultadoIdade: 'You are',
+        anos: 'years old.'
+    },
+    'es': {
+        tituloIdioma: 'Elige tu idioma:',
+        mensagemIdade: 'Ingrese su fecha de nacimiento:',
+        placeholderDataNascimento: 'Fecha de Nacimiento',
+        botaoExibirIdade: 'Mostrar edad',
+        resultadoIdade: 'Tienes',
+        anos: 'años.'
+    }
+};
 
-  let ano = prompt("Qual seu ano de nascimento?");
-  let idade = 2024 - (ano);
-
-  alert("Você tem " + (idade) + " anos.");
-
-} else if (idioma === "en-us") {
-  alert("Hello! Welcome to our website!");
-
-  let ano = prompt("What is your year of birth?");
-  let idade = 2024 - (ano);
-
-  alert("You are " + (idade) + " years old.");
-
-} else if (idioma === "es") {
-  alert("¡Hola! ¡Bienvenido a nuestro sitio web!");
-
-  let ano = prompt("¿Cuál es tu año de nacimiento?");
-  let idade = 2024 - (ano);
-
-  alert("Tienes " + (idade) + " años.");
-  
-} else {
-  alert("Idioma inválido. Por favor, escolha pt-br, en-us ou es.");
+function escolherIdioma(idioma) {
+    idiomaSelecionado = idioma;
+    exibirFormulario();
+    // Atualiza o texto do resultado automaticamente ao mudar o idioma
+    exibirIdade();
 }
 
+function exibirFormulario() {
+    document.getElementById("tituloIdioma").textContent = textos[idiomaSelecionado].tituloIdioma;
+    document.getElementById("mensagemIdade").textContent = textos[idiomaSelecionado].mensagemIdade;
+    document.getElementById("dataNascimento").placeholder = textos[idiomaSelecionado].placeholderDataNascimento;
+    document.getElementById("botaoExibirIdade").textContent = textos[idiomaSelecionado].botaoExibirIdade;
+}
+
+function exibirIdade() {
+    let dataNascimento = document.getElementById("dataNascimento").value;
+
+    let dataNascimentoObj = new Date(dataNascimento);
+    let dataAtual = new Date();
+
+    let anoNascimento = dataNascimentoObj.getFullYear();
+    let mesNascimento = dataNascimentoObj.getMonth();
+    let diaNascimento = dataNascimentoObj.getDate();
+
+    let anoAtual = dataAtual.getFullYear();
+    let mesAtual = dataAtual.getMonth();
+    let diaAtual = dataAtual.getDate();
+
+    let idade = anoAtual - anoNascimento;
+
+    if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
+        idade--;
+    }
+
+    // Atualiza o texto do resultado automaticamente ao mudar o idioma
+    document.getElementById("resultadoIdade").textContent = `${textos[idiomaSelecionado].resultadoIdade} ${idade} ${textos[idiomaSelecionado].anos}`;
+}
+
+function alternarEsquemaCores() {
+  // Obtém o elemento do controle de alternância
+  var toggle = document.getElementById('color-scheme-toggle');
+
+  // Obtém o elemento do corpo
+  var body = document.body;
+
+  // Alterna entre os esquemas de cores claro e escuro
+  if (toggle.checked) {
+      body.classList.add('dark');
+      body.classList.remove('light');
+  } else {
+      body.classList.add('light');
+      body.classList.remove('dark');
+  }
+}

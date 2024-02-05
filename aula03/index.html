@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Qual sua idade?</title>
 </head>
 <body>
-    
+    <label for="color-scheme-toggle">Esquema de Cores:</label>
+    <input type="checkbox" id="color-scheme-toggle" onchange="alternarEsquemaCores()">
 
-    <script src="./fernando-costa-ax3.js"></script>
+    <h1 id="tituloIdioma">Escolha seu idioma:</h1>
+    <button onclick="escolherIdioma('pt-br')">Português</button>
+    <button onclick="escolherIdioma('en-us')">English</button>
+    <button onclick="escolherIdioma('es')">Español</button>
+
+    <p id="mensagemIdade">Digite sua data de nascimento:</p>
+
+    <label for="dataNascimento" id="dataNascimentoTxt">Data de Nascimento:</label>
+    <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
+    <button onclick="exibirIdade()" id="botaoExibirIdade">Exibir idade</button>
+
+    <p id="resultadoIdade"></p>
+
+    <script src="fernando-costa-ax3.js"></script>
 </body>
 </html>
