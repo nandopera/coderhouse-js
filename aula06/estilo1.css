@@ -1,0 +1,35 @@
+html {
+    background-color: rgb(34, 59, 60);
+    color:hsla(233, 23%, 68%, 1);
+}
+
+.interruptor input[type="radio"] {
+    appearance: none;
+}
+
+.interruptor {
+    appearance: none;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.interruptor .bola {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: 0.2s ease-in-out;
+}
+
+#estilo1:checked + .interruptor .bola {
+    left: 25px;
+}

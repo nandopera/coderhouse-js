@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo1.css">
+    <link rel="stylesheet" id="estilo2" href="estilo2.css" disabled>
+    <title>Meu Portfólio JavaScript</title>
+</head>
+<body>
+    <h2>Exemplo de troca de CSS</h2>
+    <input type="radio" id="estilo1" name="estilo" class="form-check-input" checked>
+    <label for="estilo1" class="interruptor">
+        <span class="bola"></span>
+    </label>
+
+    <input type="radio" id="estilo2" name="estilo" class="form-check-input">
+    <label for="estilo2" class="interruptor">
+        <span class="bola"></span>
+    </label>
+
+    <h1>Meu Portfólio JavaScript</h1>
+    <button id="ex1" onclick="carregarArquivoJS('while.js')">Exercício 1</button>
+    <button id="ex2" onclick="carregarArquivoJS('switch.js')">Exercício 2</button>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
